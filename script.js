@@ -32,6 +32,25 @@ let playerScoreNumber = 0;
 let computerScoreNumber = 0;
 let computerChoice = '';
 
+// reset all selected icons
+function resetSelected() {
+  allGameIcons.forEach((icon) => {
+    icon.classList.remove('selected');
+  });
+  stopConfetti();
+  removeConfetti();
+}
+
+function resetAll() {
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  playerScoreEl.textContent = playerScoreNumber;
+  computerScoreEl.textContent = computerScoreNumber;
+  playerChoiceEl.textContent = '';
+  computerChoiceEl.textContent = '';
+  resultText.textContent = '';
+  resetSelected();
+}
 // random computer choice
 function computerRandomChoice() {
   const compChoiceNumber = Math.random();
@@ -39,15 +58,16 @@ function computerRandomChoice() {
   if (compChoiceNumber < 0.2) {
     computerChoice = 'rock';
   } else if (compChoiceNumber <= 0.4) {
-    computerChoice = 'paper'
+    computerChoice = 'paper';
   } else if (compChoiceNumber <= 0.6) {
-    computerChoice = 'scissors'
+    computerChoice = 'scissors';
   } else if (compChoiceNumber <= 0.8) {
-    computerChoice = 'lizard'  
+    computerChoice = 'lizard'; 
   } else {
-    computerChoice = 'spock'
+    computerChoice = 'spock';
   }
 }
+
 
 // add 'selected' styling and computerChoice
 function displayComputerChoice() {
@@ -77,27 +97,6 @@ function displayComputerChoice() {
   }
 }
 
-// reset all selected icons
-function resetSelected() {
-  allGameIcons.forEach((icon) => {
-    icon.classList.remove('selected');
-  });
-
-  stopConfetti();
-  removeConfetti();
-}
-
-function resetAll() {
-  playerScoreNumber = 0;
-  computerScoreNumber = 0;
-  playerScoreEl.textContent = playerScoreNumber;
-  computerScoreEl.textContent = computerScoreNumber;
-  playerChoiceEl.textContent = '';
-  computerChoiceEl.textContent = '';
-  resultText.textContent = '';
-  resetSelected();
-}
-
 // update score
 function updateScore(playerChoice) {
   if (playerChoice === computerChoice) {
@@ -121,10 +120,8 @@ function updateScore(playerChoice) {
 // call functions to process turn
 function checkResult(playerChoice) {
   resetSelected();
-
   computerRandomChoice();
   displayComputerChoice();
-
   updateScore(playerChoice);
 }
 
@@ -136,7 +133,7 @@ function select(playerChoice) {
   switch (playerChoice) {
     case 'rock':
       playerRock.classList.add('selected');
-      playerChoiceEl.textContent = ' -- Rock';
+      playerChoiceEl.textContent = ' --- Rock';
       break;    
     case 'paper':
       playerPaper.classList.add('selected');

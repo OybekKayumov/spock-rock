@@ -27,6 +27,7 @@ body {
   background: dodgerblue;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +49,7 @@ h2 {
 .far {
   font-size: 50px;
   margin-right: 40px;
-  User-select: none;
+  /* User-select: none; */
 }
 
 #player .far,
@@ -59,10 +60,10 @@ h2 {
 
 #computer .far, 
 #computer .choice {
-  color: rgba(235, 43, 52);
+  color: rgb(235, 43, 52);
 } 
 
-#player .far:last-of-type 
+#player .far:last-of-type, 
 #computer .far:last-of-type {
   margin-right: 0;
 }
