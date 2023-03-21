@@ -73,6 +73,7 @@ function displayComputerChoice() {
     default:
       break;
   }
+}
 
 // reset all selected icons
 function resetSelected() {
